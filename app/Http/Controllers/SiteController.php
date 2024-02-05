@@ -3,18 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\employee;
+use App\Models\Employees;
 
 class SiteController extends Controller
 {
     //
     public  function index() {
-        $emps = employee::all();
+        $emps = Employees::all();
         $data = compact('emps');
         return view('index')->with($data);
     }
     public  function updatePage($id) {
-        $emp = employee::find($id);
+        $emp = Employees::find($id);
         if(is_null($emp)){
             return redirect(url('/'));
         }
@@ -23,7 +23,7 @@ class SiteController extends Controller
     }
 
     public function update($id, Request $req){
-        $emp = employee::find($id);
+        $emp = Employees::find($id);
         if(is_null($emp)){
             return redirect(url('/'));
         }
@@ -40,7 +40,7 @@ class SiteController extends Controller
     }
 
     public  function insert(Request $req) {
-        $emp = new employee();
+        $emp = new Employees();
         
         $emp->name = $req['name'];
         $emp->email = $req['email'];
@@ -59,7 +59,7 @@ class SiteController extends Controller
     }
 
     public function delete($id){
-        $del = employee::find($id);
+        $del = Employees::find($id);
 
         if($del != null){
             $del->delete();
@@ -69,14 +69,14 @@ class SiteController extends Controller
     
     
     public function trashPage(){
-        $emps = employee::onlyTrashed()->get();
+        $emps = Employees::onlyTrashed()->get();
         $data = compact('emps');
         return view('trashPage')->with($data);
     }
     
     public function trashPageDelete($id){ 
         //Permanent Delete
-        $del = employee::onlyTrashed()->find($id);
+        $del = Employees::onlyTrashed()->find($id);
         if($del != null){
             unlink(storage_path("app/public/uploads/" . $del->emp_pic));
             $del->forceDelete();
@@ -84,7 +84,7 @@ class SiteController extends Controller
         return redirect()->back();
     }
     public function trashPageRestore($id){
-        $restore = employee::onlyTrashed()->find($id);
+        $restore = Employees::onlyTrashed()->find($id);
         if($restore != null){
             $restore->restore();
         }

@@ -83,7 +83,7 @@
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Inser your Image</label>
                             <input class="form-control" name="emp_pic" type="file" accept="image/*" id="formFile">
-                          </div>
+                        </div>
 
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-dark" name="submit_btn">Submit</button>
@@ -98,10 +98,24 @@
 
     <div class="container">
 
-        <br><h2 class="text-center">Employee List</h2>
+        <br>
+        <h2 class="text-center">Employee List</h2>
+        <br>
+
+        <form action="" method="get">
+            <div class="input-group">
+                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                    aria-describedby="search-addon" />
+                <button type="button" class="btn btn-outline-dark" data-mdb-ripple-init>search</button>
+            </div>
+        </form>
+
+
         <div class="d-flex flex-row">
-            <button type="button" class="btn btn-outline-dark mt-5 mb-2" data-bs-toggle="modal" data-bs-target="#add_new_user_modal">Add New User</button>
-            &nbsp;&nbsp;<a href="{{url('/trashPage')}}" class="btn btn-danger mt-5 mb-2">Trash</a>
+            <button type="button" class="btn btn-outline-dark mt-5 mb-2" data-bs-toggle="modal"
+                data-bs-target="#add_new_user_modal">Add New User</button>
+
+            &nbsp;&nbsp;<a href="{{ url('/trashPage') }}" class="btn btn-danger mt-5 mb-2">Trash</a>
         </div>
 
         <table class="table table-hover text-center">
@@ -128,7 +142,8 @@
                         <td>{{ $emp->gender }}</td>
                         <td>{{ $emp->dob }}</td>
                         <td>{{ $emp->about_user }}</td>
-                        <td><img style="height: 50px; width: 50px" src="{{ asset('storage/uploads/' . $emp->emp_pic) }}" alt="emp_pic"></td>
+                        <td><img style="height: 50px; width: 50px"
+                                src="{{ asset('storage/uploads/' . $emp->emp_pic) }}" alt="emp_pic"></td>
                         <td>
                             {{-- This is update icon --}}
                             <a href="{{ url('updatePage') }}/{{ $emp->id }}" class="link-dark"><i
