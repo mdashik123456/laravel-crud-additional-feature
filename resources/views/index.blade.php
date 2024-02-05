@@ -82,7 +82,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Inser your Image</label>
-                            <input class="form-control" type="file" accept="image/*" id="formFile">
+                            <input class="form-control" name="emp_pic" type="file" accept="image/*" id="formFile">
                           </div>
 
                         <div class="modal-footer">
@@ -114,6 +114,7 @@
                     <th scope="col">Gender</th>
                     <th scope="col">Date of Birth</th>
                     <th scope="col">About Users</th>
+                    <th scope="col">Picture</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -127,6 +128,7 @@
                         <td>{{ $emp->gender }}</td>
                         <td>{{ $emp->dob }}</td>
                         <td>{{ $emp->about_user }}</td>
+                        <td><img style="height: 50px; width: 50px" src="{{ asset('storage/uploads' . '/' . $emp->emp_pic) }}" alt="emp_pic"></td>
                         <td>
                             {{-- This is update icon --}}
                             <a href="{{ url('updatePage') }}/{{ $emp->id }}" class="link-dark"><i

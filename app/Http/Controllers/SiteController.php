@@ -48,9 +48,13 @@ class SiteController extends Controller
         $emp->gender = $req['gender'];
         $emp->dob = $req['dob'];
         $emp->about_user = $req['about_user'];
-        
-        $emp->save();
 
+        //image uploading code starts here
+        $fileName = $req['email'] . "." .$req->file('emp_pic')->extension();
+        $emp->emp_pic = $fileName;
+        $req->file('emp_pic')->storeAs('public/uploads', $fileName);
+
+        $emp->save();
         return redirect(url('/'));
     }
 
