@@ -60,6 +60,7 @@ class SiteController extends Controller
 
     public function delete($id){
         $del = employee::find($id);
+
         if($del != null){
             $del->delete();
         }
@@ -77,6 +78,7 @@ class SiteController extends Controller
         //Permanent Delete
         $del = employee::onlyTrashed()->find($id);
         if($del != null){
+            unlink(storage_path("app/public/uploads/" . $del->emp_pic));
             $del->forceDelete();
         }
         return redirect()->back();

@@ -128,7 +128,7 @@
                         <td>{{ $emp->gender }}</td>
                         <td>{{ $emp->dob }}</td>
                         <td>{{ $emp->about_user }}</td>
-                        <td><img style="height: 50px; width: 50px" src="{{ asset('storage/uploads' . '/' . $emp->emp_pic) }}" alt="emp_pic"></td>
+                        <td><img style="height: 50px; width: 50px" src="{{ asset('storage/uploads/' . $emp->emp_pic) }}" alt="emp_pic"></td>
                         <td>
                             {{-- This is update icon --}}
                             <a href="{{ url('updatePage') }}/{{ $emp->id }}" class="link-dark"><i

@@ -41,6 +41,7 @@
                     <th scope="col">Gender</th>
                     <th scope="col">Date of Birth</th>
                     <th scope="col">About Users</th>
+                    <th scope="col">Picture</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -54,6 +55,7 @@
                         <td>{{ $emp->gender }}</td>
                         <td>{{ $emp->dob }}</td>
                         <td>{{ $emp->about_user }}</td>
+                        <td><img style="height: 50px; width: 50px" src="{{ asset('storage/uploads/' . $emp->emp_pic) }}" alt="emp_pic"></td>
                         <td>
                             {{-- This is update icon --}}
                             <a href="{{ url('/trashPage/restore') }}/{{ $emp->id }}" class="link-dark"><i
