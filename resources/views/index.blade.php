@@ -80,7 +80,10 @@
                             <label>About User</label>
                             <textarea class="form-control" id="about_user" name="about_user" rows="3" placeholder="Write a short description"></textarea>
                         </div>
-                        <br>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Inser your Image</label>
+                            <input class="form-control" type="file" accept="image/*" id="formFile">
+                          </div>
 
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-dark" name="submit_btn">Submit</button>
