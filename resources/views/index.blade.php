@@ -102,11 +102,12 @@
         <h2 class="text-center">Employee List</h2>
         <br>
 
-        <form action="" method="get">
+        <form action="{{url('/')}}" method="get">
             <div class="input-group">
-                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-                    aria-describedby="search-addon" />
-                <button type="button" class="btn btn-outline-dark" data-mdb-ripple-init>search</button>
+                <input type="search" class="form-control rounded" name="search" placeholder="Enter Name, ID or Email" aria-label="Search"
+                    aria-describedby="search-addon" value="{{$search}}" />
+                <button type="submit" class="btn btn-outline-dark" data-mdb-ripple-init>Search</button>
+                <a href="{{url('/')}}" type="submit" class="btn btn-outline-dark" data-mdb-ripple-init>Reset</a>
             </div>
         </form>
 

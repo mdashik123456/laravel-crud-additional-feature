@@ -8,9 +8,15 @@ use App\Models\Employees;
 class SiteController extends Controller
 {
     //
-    public  function index() {
-        $emps = Employees::all();
-        $data = compact('emps');
+    public  function index(Request $req) {
+        $search = $req['search'] ?? "";
+         if($search == ""){
+            $emps = Employees::all();
+         }else{
+            $emps = Employees::where('name', "LIKE", "%$search%")->orWhere('email', "LIKE", "%$search%")->orWhere('id', "LIKE", "%$search%")->get();
+         }
+
+        $data = compact('emps', 'search');
         return view('index')->with($data);
     }
     public  function updatePage($id) {
