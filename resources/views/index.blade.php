@@ -102,6 +102,7 @@
         <h2 class="text-center">Employee List</h2>
         <br>
 
+        {{-- Search Bar --}}
         <form action="{{url('/')}}" method="get">
             <div class="input-group">
                 <input type="search" class="form-control rounded" name="search" placeholder="Enter Name, ID or Email" aria-label="Search"
