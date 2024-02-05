@@ -1,0 +1,2 @@
+for Image command:
+    php artisan storage:link
