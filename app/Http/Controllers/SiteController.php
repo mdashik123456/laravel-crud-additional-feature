@@ -11,9 +11,9 @@ class SiteController extends Controller
     public  function index(Request $req) {
         $search = $req['search'] ?? "";
          if($search == ""){
-            $emps = Employees::all();
+            $emps = Employees::paginate(3);
          }else{
-            $emps = Employees::where('name', "LIKE", "%$search%")->orWhere('email', "LIKE", "%$search%")->orWhere('id', "LIKE", "%$search%")->get();
+            $emps = Employees::where('name', "LIKE", "%$search%")->orWhere('email', "LIKE", "%$search%")->orWhere('id', "LIKE", "%$search%")->paginate(3);
          }
 
         $data = compact('emps', 'search');

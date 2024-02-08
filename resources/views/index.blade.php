@@ -159,6 +159,9 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="row">
+            {{$emps->links()}}
+        </div>
     </div>
 
 
